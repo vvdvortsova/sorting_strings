@@ -1,5 +1,5 @@
-# Strings Sorting by alphabet in English and in Russian
-This program is the second task of ISP RAS course.
+# Strings Sorting by alphabet. It suits for English and Russian alphabet.
+This program is the second task of ISP RAS course C/C++ by I. R. Dedinsky
 ## Info
 This program sorts strings by alphabet in two directions: from left to right and from right to left.
 Project uses windows-1251 file encoding  for reading Russian language.
