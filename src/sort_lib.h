@@ -6,9 +6,9 @@
 #define SORT_STRINGS_SORT_LIB_H
 
 #define SWAP(item1, item2){\
-        struct LineOfFile temp = *(item1);\
-        *item1 = *item2;\
-        *item2 = temp;\
+        struct LineOfFile temp = (item1);\
+        item1 = item2;\
+        item2 = temp;\
 }
 
 struct LineOfFile{

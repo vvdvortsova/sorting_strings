@@ -3,37 +3,43 @@
 //
 
 #include "sort_lib.h"
+#include <stdio.h>
 #include <ctype.h>
+#include <assert.h>
 
+//define #smth string
 
 void quickSortSortLib(struct LineOfFile *numbers, long array_size,enum HOW_TO_COMPARE_STRING howToCompareStr) {
     startQuickSortLib(numbers, 0, array_size - 1, howToCompareStr);
 }
 
+// qsort (void*, size, sizeof, )
+
 
 int partitionSortLib(struct LineOfFile* arr, int start, int end,enum HOW_TO_COMPARE_STRING howToCompareStr)
 {
-    struct LineOfFile* pivot = &arr[(start + end) / 2];
+    struct LineOfFile pivot = arr[(start + end) / 2];
     int i = start;
     int j = end;
+
     for (;i <= j;)
     {
         //if i less than pivot go ahead
-        if(strcmpSortLib(arr[i].line,arr[i].lenOfLine, pivot->line, pivot->lenOfLine, howToCompareStr) < 0)//<
+        if(strcmpSortLib(arr[i].line,arr[i].lenOfLine, pivot.line, pivot.lenOfLine, howToCompareStr) < 0)//<
         {
             do{i++;}
-            while (strcmpSortLib(arr[i].line, arr[i].lenOfLine, pivot->line, pivot->lenOfLine, howToCompareStr) < 0);//<
+            while (strcmpSortLib(arr[i].line,arr[i].lenOfLine, pivot.line, pivot.lenOfLine, howToCompareStr) < 0);//<
             //if j more than pivot go back
         }
-        else if(strcmpSortLib(arr[j].line, arr[j].lenOfLine, pivot->line, pivot->lenOfLine, howToCompareStr) > 0)//>
+        if(strcmpSortLib(arr[j].line,arr[j].lenOfLine, pivot.line, pivot.lenOfLine, howToCompareStr) > 0)//>
         {
             do{j--;}
-            while (strcmpSortLib(arr[j].line, arr[j].lenOfLine, pivot->line, pivot->lenOfLine, howToCompareStr) > 0);//>
+            while (strcmpSortLib(arr[j].line,arr[j].lenOfLine, pivot.line, pivot.lenOfLine, howToCompareStr) > 0);//>
         }
             //if i<=j swap
-        else if (i <= j)
+        if (i <= j)
         {
-            SWAP(&arr[i],&arr[j]);
+            SWAP(arr[i],arr[j]);
             i++;
             j--;
         }
@@ -54,26 +60,24 @@ void startQuickSortLib(struct LineOfFile* arr, int start, long end, enum HOW_TO_
 
 
 
-int strcmpSortLib( const char *s1, const int len1, const char *s2, const int len2, enum HOW_TO_COMPARE_STRING howToCompareStr)
+int strcmpSortLib( const char *s1, int len1, const char *s2,  int len2, enum HOW_TO_COMPARE_STRING howToCompareStr)
 {
+    assert(s2);
+    assert(s1);
 
     int i = 0,j = 0;
     switch(howToCompareStr){
         case LEFT_TO_RIGHT:
-            while((i) <= (len1 - 1) && !isalpha(s1[i])){
+        { while((i) <= (len1 - 1) && !isalpha(s1[i])){
                 ++i;
             }
             while((j) <= (len2 - 1) && !isalpha(s2[j])){
                 ++j;
             }
-            for( ; *s1 == *s2; ++s1, ++s2 )
+            for( ; s1[i] == s2[i]; ++i, ++j )
             {
-
-                if (s1[i] == '\0' && s2[j] == '\0'){
-                    return 0;
-                }
                 if (s1[i] == '\0' || s2[j] == '\0' ){
-                    return (unsigned char) s1[i] - (unsigned char) s2[j];
+                    break;
                 }
                 while((i + 1) <= (len1 - 1) && !isalpha(s1[i + 1])){
                     ++i;
@@ -83,31 +87,21 @@ int strcmpSortLib( const char *s1, const int len1, const char *s2, const int len
                 }
             }
             break;
+        }
         case RIGHT_TO_LEFT:
-            i = len1 - 1;
-            j = len2 - 1;
-            while((i) >= 0 && !isalpha(s1[i])){
-                --i;
-            }
-            while((j) >= 0 && !isalpha(s2[j])){
-                --j;
-            }
-            for( ; tolower(s1[i]) == tolower(s2[j]); --i, --j){
 
-                if (s1[i] == '\0' && s2[j] == '\0'){
-                    return 0;
-                }
-                if (s1[i] == '\0' || s2[j] == '\0' ){
-                    return (unsigned char) s1[i] - (unsigned char) s2[j];
-                }
-                while((i - 1) >= 0 && !isalpha(s1[i-1])){
-                    --i;
-                }
-                while((j-1) >= 0 && !isalpha(s2[j - 1])){
-                    --j;
-                }
-            }
-            break;
-    };
+            i = len1;
+            j = len2;
+
+            do{
+                    do i--;
+                    while((i >= 0)&& !isalpha((unsigned char)s1[i]));
+                    do j--;
+                    while((j >= 0) && !isalpha((unsigned char)s2[j]));
+
+            }while(((i > 0) && (j > 0)) && (s1[i] == s2[j]));
+
+            return (unsigned char) s1[i] - (unsigned char) s2[j];
+    }
     return (unsigned char) s1[i] - (unsigned char) s2[j];
 }

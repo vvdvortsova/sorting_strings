@@ -4,10 +4,11 @@
 #include <spandsp.h>
 #include "sort_lib.h"
 
+//TODO check input without \n and strange symbols
 
 int main() {
 
-    enum HOW_TO_COMPARE_STRING howToCompareStr = LEFT_TO_RIGHT;
+    enum HOW_TO_COMPARE_STRING howToCompareStr = RIGHT_TO_LEFT;
     struct LineOfFile* sourceList = NULL;
     setlocale(LC_ALL, "ru_RU.cp1251");
     //read source file
@@ -64,8 +65,13 @@ int main() {
     int startOfLine = 0;
     int lenOfCurrentLine = 0;
     for (i = 0; i < length; i++) {
-        startOfLine = i;// remember point of the beginning of current line
+        // TO DO: pointers rechange
+
+
+        startOfLine = i;// remembers point of the beginning of current line
         lenOfCurrentLine = 0;
+
+
         for (int j = i + 1; j < length; ++j) {
             if(buffer[j] == '\n'|| (i + 1) == length - 1)
             {
@@ -80,7 +86,8 @@ int main() {
         sourceList[currentLine].line = calloc(lenOfCurrentLine, sizeof(char*));
 
         memcpy(sourceList[currentLine].line, &buffer[startOfLine], lenOfCurrentLine);
-
+        if(sourceList[currentLine].line == NULL)
+            printf("baddd");
         currentLine++;
         i += lenOfCurrentLine;
 
@@ -89,11 +96,11 @@ int main() {
 
     //copy array with pointers
 
-    struct LineOfFile* listWithWordsForSort = NULL;
-    listWithWordsForSort = calloc(linesCount, linesCount * sizeof(char*));
-    for (int k = 0; k < linesCount ; ++k) {
-        listWithWordsForSort[k] = sourceList[k];
-    }
+//    struct LineOfFile* listWithWordsForSort = NULL;
+//    listWithWordsForSort = calloc(linesCount, linesCount * sizeof(char*));
+//    for (int k = 0; k < linesCount ; ++k) {
+//        listWithWordsForSort[k] = sourceList[k];
+//    }
 
 
     // Имеем массив lines в котором linesCount строк
@@ -115,21 +122,47 @@ int main() {
         fprintf(fileToWriteResult,"%s \n",sourceList[l].line);
     }
     fclose(fileToWriteResult);
-    for (i = 0; i < linesCount; i++) {
-        free(listWithWordsForSort[i].line);
-    }
+//    for (i = 0; i < linesCount; i++) {
+//        free(listWithWordsForSort[i].line);
+//    }
     for (i = 0; i < linesCount; i++) {
         free(sourceList[i].line);
     }
     free(sourceList);
-    free(listWithWordsForSort);
+//    free(listWithWordsForSort);
 
 
     exit(EXIT_SUCCESS);
 }
 
 
-
-
+//
+//for (i = 0; i < length; i++) {
+//// TO DO: pointers rechange
+//
+//
+//startOfLine = i;// remembers point of the beginning of current line
+//lenOfCurrentLine = 0;
+//
+//for (int j = i + 1; j < length; ++j) {
+//if(buffer[j] == '\n'|| (i + 1) == length - 1)
+//{
+//buffer[j] = '\0';
+//lenOfCurrentLine++;
+//break;
+//}
+//lenOfCurrentLine++;
+//}
+//
+//sourceList[currentLine].lenOfLine = lenOfCurrentLine;
+//sourceList[currentLine].line = calloc(lenOfCurrentLine, sizeof(char*));
+//
+//memcpy(sourceList[currentLine].line, &buffer[startOfLine], lenOfCurrentLine);
+//if(sourceList[currentLine].line == NULL)
+//printf("baddd");
+//currentLine++;
+//i += lenOfCurrentLine;
+//
+//}
 
 
