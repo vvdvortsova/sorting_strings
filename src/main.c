@@ -1,24 +1,136 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <spandsp.h>
+#include <assert.h>
 #include "sort_lib.h"
 
-//TODO check input without \n and strange symbols
+
+char* getBuffersFromSourceFile(int* length, char* nameOfFile);
+struct LineOfFile* arrangePointersFromBuffer(char* origin, int numberOfLines, int lengthOfBuffer);
+int getNumberOfLinesInBuffer(char* buffer, int length);
+void putResultToFiles(struct LineOfFile* sourceOrigin, int linesCount,
+                        char* nameOfFile, enum HOW_TO_COMPARE_STRING howToCompare);
 
 int main() {
 
-    enum HOW_TO_COMPARE_STRING howToCompareStr = RIGHT_TO_LEFT;
-    struct LineOfFile* sourceList = NULL;
     setlocale(LC_ALL, "ru_RU.cp1251");
-    //read source file
-    FILE* file = NULL;
-    char* buffer = NULL;
-    long length = 0;
-    long currentLine = 0;
-    long i = 0;
 
-    file = fopen("../source.txt", "r");
+    struct LineOfFile* sourceList        = NULL;
+    struct LineOfFile* sourceLeftToRight = NULL;
+    struct LineOfFile* sourceRightToLeft = NULL;
+
+    char* bufferOrigin      = NULL;
+    char* bufferLeftToRight = NULL;
+    char* bufferRightToLeft = NULL;
+
+    int length = 0;
+    char* nameOfFile = "../sources/source.txt";
+
+    bufferOrigin      =  getBuffersFromSourceFile(&length, nameOfFile);
+    bufferLeftToRight =  getBuffersFromSourceFile(&length, nameOfFile);
+    bufferRightToLeft =  getBuffersFromSourceFile(&length, nameOfFile);
+
+    int linesCount = 0;
+    linesCount = getNumberOfLinesInBuffer(bufferOrigin, length);
+
+    printf("Len of file = %d\n", linesCount);
+    //arrange pointers to the buffer
+    sourceList        = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
+    sourceLeftToRight = arrangePointersFromBuffer(bufferLeftToRight, linesCount, length);
+    sourceRightToLeft = arrangePointersFromBuffer(bufferRightToLeft, linesCount, length);
+
+    quickSortSortLib(sourceLeftToRight, linesCount, LEFT_TO_RIGHT);
+    quickSortSortLib(sourceRightToLeft, linesCount, RIGHT_TO_LEFT);
+
+    putResultToFiles(sourceLeftToRight, linesCount, "../results/sortedRightToLeft.txt", LEFT_TO_RIGHT);
+    putResultToFiles(sourceRightToLeft, linesCount, "../results/sortedLeftToRight.txt", RIGHT_TO_LEFT);
+    putResultToFiles(sourceList, linesCount, "../results/original.txt", NONE_SORT);
+
+    free(bufferOrigin);
+    free(bufferLeftToRight);
+    free(bufferRightToLeft);
+
+    free(sourceList);
+    free(sourceLeftToRight);
+    free(sourceRightToLeft);
+
+    exit(EXIT_SUCCESS);
+}
+
+void putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount,
+            char *nameOfFile, enum HOW_TO_COMPARE_STRING howToCompare){
+    assert(sourceOrigin);
+    assert(nameOfFile);
+    assert(linesCount != 0);
+
+    int isSortedArray = -1;
+    if(howToCompare != NONE_SORT){
+        isSortedArray = isSorted(sourceOrigin, linesCount, howToCompare);
+        if(isSortedArray > 0)printf(" is SORTED\n");
+        else printf(" is UNSORTED\n");
+    }
+
+    FILE* fileToWriteResult = NULL;
+    fileToWriteResult = fopen(nameOfFile, "w");
+
+    if (!fileToWriteResult){
+        printf("failed to open file");
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i = 0; i < linesCount; ++i)
+        if(*sourceOrigin[i].line != '\0')
+            fprintf(fileToWriteResult,"%s\n", sourceOrigin[i].line);
+
+    fclose(fileToWriteResult);
+}
+
+int getNumberOfLinesInBuffer(char *buffer, int length){
+    int linesCount = 0;
+//     count amount of lines
+    for (int i = 0; i < length; i++){
+        if(buffer[i] == '\n')
+            linesCount++;
+    }
+
+    if(linesCount >= length)
+        linesCount = 0;
+
+    return linesCount;
+}
+
+struct LineOfFile* arrangePointersFromBuffer(char* bufferOrigin, int numberOfLines, int lengthOfBuffer){
+    assert(bufferOrigin);
+
+    struct LineOfFile* sourceList =  calloc(numberOfLines,numberOfLines * sizeof(struct LineOfFile*));
+    int currentLine = 0;
+    int startOfLine = 0;
+    int lenOfCurrentLine = 0;
+
+    for (int i = 0; i < lengthOfBuffer; i++){
+
+        lenOfCurrentLine++;
+        if(bufferOrigin[i] == '\n')
+        {
+            bufferOrigin[i] = '\0';
+            sourceList[currentLine].lenOfLine = lenOfCurrentLine;
+            sourceList[currentLine].line      = &bufferOrigin[startOfLine];
+
+            if((i + 1) < lengthOfBuffer - 2 ){
+                startOfLine = i + 1;
+                currentLine++;
+            }
+            lenOfCurrentLine = 0;
+        }
+    }
+    return sourceList;
+}
+
+char* getBuffersFromSourceFile(int* length, char* nameOfFile){
+    assert(nameOfFile);
+    FILE* file = NULL;
+
+    file = fopen(nameOfFile, "r");
 
     if (!file) {
         printf("failed to open file");
@@ -27,142 +139,23 @@ int main() {
 
     // define size of file
     fseek(file, 0, SEEK_END);
-    length = ftell(file);
+    *length = ftell(file);
     fseek(file, 0, SEEK_SET);
 
-    buffer = calloc(length, sizeof(buffer));
-    if (buffer) {
-        //read all file in buffer
-        fread(buffer, 1, length, file);
+    char *bufferOrigin = calloc(*length + 1, sizeof(bufferOrigin));
+
+    if (bufferOrigin) {
+        //read all file in bufferOrigin
+        fread(bufferOrigin, 1, *length, file);
     }
     fclose(file);
+    if(bufferOrigin != NULL)
+        bufferOrigin[*length] = '\n';
 
-    if (!buffer) {
-        printf("read nothing");
-        exit(EXIT_FAILURE);
-    }
-
-    long linesCount = 1;
-
-    // count amount of lines
-    for (i = 0; i < length; i++) {
-        if((i + 1) == (length - 1 )|| i == (length - 1 ))
-            if(buffer[i + 1] == '\n'||buffer[i] == '\n')
-                break;
-        if(buffer[i] == '\n')
-            linesCount++;
-        while(buffer[i] == '\n' && i < (length - 1))
-            i++;
-    }
-
-    if(linesCount >= length){
-        linesCount = 0;
-    }
-
-    printf("Lines count: %d\n", (int)linesCount);
-    sourceList =  calloc(linesCount,linesCount * sizeof(struct LineOfFile*));
-    currentLine = 0;
-    int startOfLine = 0;
-    int lenOfCurrentLine = 0;
-    for (i = 0; i < length; i++) {
-        // TO DO: pointers rechange
-
-
-        startOfLine = i;// remembers point of the beginning of current line
-        lenOfCurrentLine = 0;
-
-
-        for (int j = i + 1; j < length; ++j) {
-            if(buffer[j] == '\n'|| (i + 1) == length - 1)
-            {
-                buffer[j] = '\0';
-                lenOfCurrentLine++;
-                break;
-            }
-            lenOfCurrentLine++;
-        }
-
-        sourceList[currentLine].lenOfLine = lenOfCurrentLine;
-        sourceList[currentLine].line = calloc(lenOfCurrentLine, sizeof(char*));
-
-        memcpy(sourceList[currentLine].line, &buffer[startOfLine], lenOfCurrentLine);
-        if(sourceList[currentLine].line == NULL)
-            printf("baddd");
-        currentLine++;
-        i += lenOfCurrentLine;
-
-    }
-    free(buffer);
-
-    //copy array with pointers
-
-//    struct LineOfFile* listWithWordsForSort = NULL;
-//    listWithWordsForSort = calloc(linesCount, linesCount * sizeof(char*));
-//    for (int k = 0; k < linesCount ; ++k) {
-//        listWithWordsForSort[k] = sourceList[k];
-//    }
-
-
-    // Имеем массив lines в котором linesCount строк
-    for (i = 0; i < linesCount; i++){
-        printf("len = %d %s\n", sourceList[i].lenOfLine, sourceList[i].line);
-    }
-
-    quickSortSortLib(sourceList, currentLine, howToCompareStr );
-
-    FILE* fileToWriteResult = NULL;
-    fileToWriteResult = fopen("../result.txt", "w");
-
-    if (!fileToWriteResult){
-        printf("failed to open file");
-        exit(42);
-    }
-
-    for (int l = 0; l < linesCount; ++l){
-        fprintf(fileToWriteResult,"%s \n",sourceList[l].line);
-    }
-    fclose(fileToWriteResult);
-//    for (i = 0; i < linesCount; i++) {
-//        free(listWithWordsForSort[i].line);
-//    }
-    for (i = 0; i < linesCount; i++) {
-        free(sourceList[i].line);
-    }
-    free(sourceList);
-//    free(listWithWordsForSort);
-
-
-    exit(EXIT_SUCCESS);
+    return bufferOrigin;
 }
 
 
-//
-//for (i = 0; i < length; i++) {
-//// TO DO: pointers rechange
-//
-//
-//startOfLine = i;// remembers point of the beginning of current line
-//lenOfCurrentLine = 0;
-//
-//for (int j = i + 1; j < length; ++j) {
-//if(buffer[j] == '\n'|| (i + 1) == length - 1)
-//{
-//buffer[j] = '\0';
-//lenOfCurrentLine++;
-//break;
-//}
-//lenOfCurrentLine++;
-//}
-//
-//sourceList[currentLine].lenOfLine = lenOfCurrentLine;
-//sourceList[currentLine].line = calloc(lenOfCurrentLine, sizeof(char*));
-//
-//memcpy(sourceList[currentLine].line, &buffer[startOfLine], lenOfCurrentLine);
-//if(sourceList[currentLine].line == NULL)
-//printf("baddd");
-//currentLine++;
-//i += lenOfCurrentLine;
-//
-//}
+
 
 

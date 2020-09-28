@@ -3,17 +3,25 @@
 //
 
 #include "sort_lib.h"
-#include <stdio.h>
 #include <ctype.h>
 #include <assert.h>
+#include <spandsp.h>
 
-//define #smth string
-
+int isSorted(struct LineOfFile *numbers, long array_size,enum HOW_TO_COMPARE_STRING howToCompareStr){
+    assert(numbers != NULL);
+    assert(array_size > 0);
+    for (int i = 0; i < array_size - 1; ++i) {
+        if(strcmpSortLib(numbers[i].line, numbers[i].lenOfLine, numbers[i + 1].line, numbers[i + 1].lenOfLine, howToCompareStr) > 0){
+            return -1;
+        }
+    }
+    return 1;
+}
 void quickSortSortLib(struct LineOfFile *numbers, long array_size,enum HOW_TO_COMPARE_STRING howToCompareStr) {
+    assert(numbers != NULL);
+    assert(array_size > 0);
     startQuickSortLib(numbers, 0, array_size - 1, howToCompareStr);
 }
-
-// qsort (void*, size, sizeof, )
 
 
 int partitionSortLib(struct LineOfFile* arr, int start, int end,enum HOW_TO_COMPARE_STRING howToCompareStr)
@@ -102,6 +110,8 @@ int strcmpSortLib( const char *s1, int len1, const char *s2,  int len2, enum HOW
             }while(((i > 0) && (j > 0)) && (s1[i] == s2[j]));
 
             return (unsigned char) s1[i] - (unsigned char) s2[j];
+        default:
+            return -1;
     }
     return (unsigned char) s1[i] - (unsigned char) s2[j];
 }

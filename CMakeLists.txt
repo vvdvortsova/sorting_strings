@@ -3,7 +3,7 @@ project(sort_strings C)
 
 set(CMAKE_C_STANDARD 11)
 
-#add_compile_options( -Wall -Wextra -pedantic -Werror -Wfloat-equal)
+add_compile_options( -Wall -Wextra -pedantic -Werror -Wfloat-equal)
 
 add_executable(
         sort_strings
