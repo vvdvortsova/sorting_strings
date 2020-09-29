@@ -1,6 +1,9 @@
-//
-// Created by vara on 29.09.2020.
-//
+/**
+* @file         tests.c
+* @brief        Run all tests from tests.h
+* @author       Dvortsova Varvara BSE182 HSE
+* @include      locale.h, tests.h, ../src/help_lib.h
+*/
 #include <locale.h>
 #include "tests.h"
 #include "../src/help_lib.h"

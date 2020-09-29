@@ -1,3 +1,9 @@
+/**
+* @file         main.c
+* @brief        Sorted strings of ../sources/source.txt
+* @author       Dvortsova Varvara BSE182 HSE
+* @include      stdio.h, stdlib.h, locale.h, sort_lib.h, help_lib.h
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>

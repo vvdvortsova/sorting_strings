@@ -1,7 +1,9 @@
-//
-// Created by vara on 29.09.2020.
-//
-
+/**
+* @file         help_lib.c
+* @brief        Realization of methods for helping functions in main and tests
+* @author       Dvortsova Varvara BSE182 HSE
+* @include      help_lib.h, stdio.h, stdlib.h, locale.h, assert.h, help_lib.h
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -37,6 +39,7 @@ void putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount, char* nam
 }
 
 int getNumberOfLinesInBuffer(char *buffer, int length){
+    assert(buffer);
     int linesCount = 0;
 //     count amount of lines
     for (int i = 0; i < length; i++){

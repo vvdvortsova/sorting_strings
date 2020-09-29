@@ -1,12 +1,15 @@
-//
-// Created by vara on 29.09.2020.
-//
-
+/**
+* @file         tests.h
+* @brief        Headers of methods for testing
+* @author       Dvortsova Varvara BSE182 HSE
+* @include     ../src/sort_lib.c, ../src/help_lib.h
+*/
 #ifndef SORT_STRINGS_TESTS_H
 #define SORT_STRINGS_TESTS_H
 
 #include "../src/sort_lib.c"
 #include "../src/help_lib.h"
+
 /**
  * Macros define custom assert function for unit testing
  * @param nameOfMethod Describe the name Of method where assertTestINT was called

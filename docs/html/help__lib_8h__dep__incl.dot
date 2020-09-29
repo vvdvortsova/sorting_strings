@@ -1,0 +1,15 @@
+digraph "src/help_lib.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node2 [label="src/help_lib.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="src/help_lib.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$help__lib_8c.html",tooltip="Realization of methods for helping functions in main and tests. "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="src/main.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html",tooltip="Sorted strings of ../sources/source.txt. "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="tests/tests.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tests_8h.html",tooltip="Headers of methods for testing. "];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="tests/tests.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tests_8c.html",tooltip="Run all tests from tests.h. "];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

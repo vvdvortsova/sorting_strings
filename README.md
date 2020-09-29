@@ -20,7 +20,10 @@ and use .txt with windows-1251 file encoding
     - src/
 - Test project
     - tests/
-
+- Source dir
+    - sources/source.txt
+- Results gir
+    - results/
 
 # Run
 To run main program
