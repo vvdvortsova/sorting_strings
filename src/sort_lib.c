@@ -70,8 +70,8 @@ void startQuickSortLib(struct LineOfFile* arr, int start, long end, enum HOW_TO_
 
 int strcmpSortLib( const char *s1, int len1, const char *s2,  int len2, enum HOW_TO_COMPARE_STRING howToCompareStr)
 {
-    assert(s2);
-    assert(s1);
+    assert(s1 != NULL);
+    assert(s2 != NULL);
 
     int i = 0,j = 0;
     switch(howToCompareStr){

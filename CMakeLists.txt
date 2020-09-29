@@ -9,8 +9,13 @@ add_executable(
         sort_strings
         src/main.c
         src/sort_lib.c
-        src/sort_lib.h)
+        src/sort_lib.h
+        src/help_lib.h
+        src/help_lib.c)
 
 add_executable(
         tests
-        tests/tests.c)
+        tests/tests.h
+        tests/tests.c
+        src/help_lib.h
+        src/help_lib.c)
