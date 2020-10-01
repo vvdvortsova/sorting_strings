@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
 #include "sort_lib.h"
 #include "help_lib.h"
 
@@ -15,32 +16,25 @@ int main() {
 
     setlocale(LC_ALL, "ru_RU.cp1251");
 
-    struct LineOfFile* sourceList        = NULL;
-    struct LineOfFile* sourceLeftToRight = NULL;
-    struct LineOfFile* sourceRightToLeft = NULL;
-
-    char* bufferOrigin      = NULL;
-    char* bufferLeftToRight = NULL;
-    char* bufferRightToLeft = NULL;
-
     int length = 0;
-    char* nameOfFile = "../sources/source.txt";
+    char* nameOfFile = "../src/source.txt";
 
-    bufferOrigin      =  getBuffersFromSourceFile(&length, nameOfFile);
-    bufferLeftToRight =  getBuffersFromSourceFile(&length, nameOfFile);
-    bufferRightToLeft =  getBuffersFromSourceFile(&length, nameOfFile);
+    char* bufferOrigin      =  getBuffersFromSourceFile(&length, nameOfFile);
+    char* bufferLeftToRight = calloc(length + 1, sizeof(bufferOrigin));
+    char* bufferRightToLeft = calloc(length + 1, sizeof(bufferOrigin));
+    memcpy(bufferLeftToRight, bufferOrigin,length);
+    memcpy(bufferRightToLeft, bufferOrigin,length);
 
-    int linesCount = 0;
-    linesCount = getNumberOfLinesInBuffer(bufferOrigin, length);
+    int linesCount = getNumberOfLinesInBuffer(bufferOrigin, length);
 
     printf("Len of file = %d\n", linesCount);
     //arrange pointers to the buffer
-    sourceList        = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
-    sourceLeftToRight = arrangePointersFromBuffer(bufferLeftToRight, linesCount, length);
-    sourceRightToLeft = arrangePointersFromBuffer(bufferRightToLeft, linesCount, length);
+    struct LineOfFile* sourceList        = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
+    struct LineOfFile* sourceLeftToRight = arrangePointersFromBuffer(bufferLeftToRight, linesCount, length);
+    struct LineOfFile* sourceRightToLeft = arrangePointersFromBuffer(bufferRightToLeft, linesCount, length);
 
-    quickSortSortLib(sourceLeftToRight, linesCount, LEFT_TO_RIGHT);
-    quickSortSortLib(sourceRightToLeft, linesCount, RIGHT_TO_LEFT);
+    startQuickSortLib(sourceLeftToRight, 0,linesCount - 1, LEFT_TO_RIGHT);
+    startQuickSortLib(sourceRightToLeft, 0,linesCount - 1,RIGHT_TO_LEFT);
 
     putResultToFiles(sourceLeftToRight, linesCount, "../results/sortedRightToLeft.txt", LEFT_TO_RIGHT);
     putResultToFiles(sourceRightToLeft, linesCount, "../results/sortedLeftToRight.txt", RIGHT_TO_LEFT);

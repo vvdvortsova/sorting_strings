@@ -22,8 +22,8 @@
 * @brief  Struct is keeping char* array and length of this char* array
 */
 struct LineOfFile{
-    char* line;/**< keeps line*/
-    unsigned int lenOfLine;/**< length of  line*/
+    char* start;/**< keeps point on the beginning of the line*/
+    char* end;/**< keeps point on the end of the line*/
 };
 
 /*! This is an enum for defining the type of direction of sorting  */
@@ -53,13 +53,13 @@ int partitionSortLib(struct LineOfFile* arr, int start, int end,enum HOW_TO_COMP
  */
 void startQuickSortLib(struct LineOfFile* arr, int start, int end, enum HOW_TO_COMPARE_STRING howToCompareStr);
 
-/**
-* @brief       Methods runs startQuickSortLib
-* @param[in]   arr               array of struct LineOfFile*
-* @param[in]   arraySize         size of array
-* @param[in]   howToCompareStr   type of comparator
- */
-void quickSortSortLib(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr);
+///**
+//* @brief       Methods runs startQuickSortLib
+//* @param[in]   arr               array of struct LineOfFile*
+//* @param[in]   arraySize         size of array
+//* @param[in]   howToCompareStr   type of comparator
+// */
+//void quickSortSortLib(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr);
 
 /**
 * @brief       Methods overrides strcmp for struct LineOfFile*
@@ -70,7 +70,7 @@ void quickSortSortLib(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COM
 * @param[in]   howToCompareStr type of comparator
 * @return                      positive number if s1 > s2, negative number if s1 < s2 else 0
  */
-int strcmpSortLib( const char *s1, int len1, const char *s2, int len2, enum HOW_TO_COMPARE_STRING howToCompareStr);
+int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_TO_COMPARE_STRING howToCompareStr);
 
 /**
 * @brief       Checks if array with char* is in order

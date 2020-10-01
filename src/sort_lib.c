@@ -10,21 +10,37 @@
 #include <assert.h>
 #include <spandsp.h>
 
+//bool isalphaSortLib(char* alpha){
+//    if(isalpha(alpha))
+//        return true;
+//    else{
+//        if((int)alpha == 0x04)
+//        {
+//            if((int)(alpha + 1) <= 0x4F)
+//            {
+//                //russian alpha!
+//            }
+//        } else  return false;
+//
+//    }
+//    return  true;
+//}
+
 int isSorted(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr){
     assert(numbers != NULL);
     assert(arraySize > 0);
     for (int i = 0; i < arraySize - 1; ++i) {
-        if(strcmpSortLib(numbers[i].line, numbers[i].lenOfLine, numbers[i + 1].line, numbers[i + 1].lenOfLine, howToCompareStr) > 0){
+        if(strcmpSortLib(&numbers[i],&numbers[i + 1], howToCompareStr) > 0){
             return -1;
         }
     }
     return 1;
 }
-void quickSortSortLib(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr) {
-    assert(numbers != NULL);
-    assert(arraySize > 0);
-    startQuickSortLib(numbers, 0, arraySize - 1, howToCompareStr);
-}
+//void quickSortSortLib(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr) {
+//    assert(numbers != NULL);
+//    assert(arraySize > 0);
+//    startQuickSortLib(numbers, 0, arraySize - 1, howToCompareStr);
+//}
 
 
 int partitionSortLib(struct LineOfFile* arr, int start, int end,enum HOW_TO_COMPARE_STRING howToCompareStr)
@@ -36,16 +52,16 @@ int partitionSortLib(struct LineOfFile* arr, int start, int end,enum HOW_TO_COMP
     for (;i <= j;)
     {
         //if i less than pivot go ahead
-        if(strcmpSortLib(arr[i].line,arr[i].lenOfLine, pivot.line, pivot.lenOfLine, howToCompareStr) < 0)//<
+        if(strcmpSortLib(&arr[i], &pivot, howToCompareStr) < 0)//<
         {
             do{i++;}
-            while (strcmpSortLib(arr[i].line,arr[i].lenOfLine, pivot.line, pivot.lenOfLine, howToCompareStr) < 0);//<
+            while (strcmpSortLib(&arr[i], &pivot, howToCompareStr) < 0);//<
             //if j more than pivot go back
         }
-        if(strcmpSortLib(arr[j].line,arr[j].lenOfLine, pivot.line, pivot.lenOfLine, howToCompareStr) > 0)//>
+        if(strcmpSortLib(&arr[j], &pivot, howToCompareStr) > 0)//>
         {
             do{j--;}
-            while (strcmpSortLib(arr[j].line,arr[j].lenOfLine, pivot.line, pivot.lenOfLine, howToCompareStr) > 0);//>
+            while (strcmpSortLib(&arr[j], &pivot, howToCompareStr) > 0);//>
         }
             //if i<=j swap
         if (i <= j)
@@ -62,6 +78,7 @@ int partitionSortLib(struct LineOfFile* arr, int start, int end,enum HOW_TO_COMP
 
 void startQuickSortLib(struct LineOfFile* arr, int start, int end, enum HOW_TO_COMPARE_STRING howToCompareStr)
 {
+    assert(arr != NULL);
     int pIndex = partitionSortLib(arr, start, end, howToCompareStr);
     if (start < pIndex - 1)
         startQuickSortLib(arr, start, pIndex - 1, howToCompareStr);
@@ -71,48 +88,52 @@ void startQuickSortLib(struct LineOfFile* arr, int start, int end, enum HOW_TO_C
 
 
 
-int strcmpSortLib( const char *s1, int len1, const char *s2,  int len2, enum HOW_TO_COMPARE_STRING howToCompareStr)
+int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_TO_COMPARE_STRING howToCompareStr)
 {
-    assert(s1 != NULL);
-    assert(s2 != NULL);
+    assert(item1 != NULL);
+    assert(item2 != NULL);
+
 
     int i = 0, j = 0;
 
+
     switch(howToCompareStr){
         case LEFT_TO_RIGHT:
-            while(i <= (len1 - 1) && !isalpha(s1[i]))
+            while(item1->start[i] != '\0' && !isalpha(item1->start[i]))
                 ++i;
 
-            while(j <= (len2 - 1) && !isalpha(s2[j]))
+            while(item2->start[j] != '\0'&& !isalpha(item2->start[j]))
                 ++j;
 
-            for( ; s1[i] == s2[i]; ++i, ++j )
+            for( ; item1->start[i] == item2->start[i]; ++i, ++j )
             {
-                if (s1[i] == '\0' || s2[j] == '\0' )
+                if (item1->start[i] == '\0' || item2->start[j] == '\0' )
                     break;
 
-                while((i + 1) <= (len1 - 1) && !isalpha(s1[i + 1]))
+                while(item1->start[i + 1] != '\0' && !isalpha(item1->start[i + 1]))
                     ++i;
 
-                while((j + 1) <= (len2 - 1) && !isalpha(s2[j + 1]))
+                while(item2->start[j + 1] != '\0' && !isalpha(item2->start[j + 1]))
                     ++j;
             }
-            break;
+            return (unsigned char) item1->start[i] - (unsigned char) item2->start[j];
 
-        case RIGHT_TO_LEFT:
-            i = len1;
-            j = len2;
+            case RIGHT_TO_LEFT:
+                i--;
+                j--;
             do{
                     do i--;
-                    while((i >= 0)&& !isalpha(s1[i]));
+                    while(item1->end[i] != '\0' && !isalpha(item1->end[i]));
                     do j--;
-                    while((j >= 0) && !isalpha(s2[j]));
+                    while(item2->end[j] != '\0' && !isalpha(item2->end[j]));
 
-            }while(((i > 0) && (j > 0)) && (s1[i] == s2[j]));
-            break;
+            }while(((item1->end[i] != '\0') && (item2->end[j] != '\0')) && (item1->end[i] == item2->end[j]));
+
+            return (unsigned char) item1->end[i] - (unsigned char) item2->end[j];
+
 
         default:
             return -1;
     }
-    return (unsigned char) s1[i] - (unsigned char) s2[j];
 }
+

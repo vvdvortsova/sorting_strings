@@ -32,8 +32,8 @@ void putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount, char* nam
     }
 
     for (int i = 0; i < linesCount; ++i)
-        if(*sourceOrigin[i].line != '\0')
-            fprintf(fileToWriteResult,"%s\n", sourceOrigin[i].line);
+        if(*sourceOrigin[i].start != '\0')
+            fprintf(fileToWriteResult,"%s\n", sourceOrigin[i].start);
 
     fclose(fileToWriteResult);
 }
@@ -67,8 +67,8 @@ struct LineOfFile* arrangePointersFromBuffer(char* bufferOrigin, int numberOfLin
         if(bufferOrigin[i] == '\n')
         {
             bufferOrigin[i] = '\0';
-            sourceList[currentLine].lenOfLine = lenOfCurrentLine;
-            sourceList[currentLine].line      = &bufferOrigin[startOfLine];
+            sourceList[currentLine].start      = &bufferOrigin[startOfLine];
+            sourceList[currentLine].end = &bufferOrigin[i];
 
             if((i + 1) < lengthOfBuffer - 2 ){
                 startOfLine = i + 1;
@@ -87,7 +87,7 @@ char* getBuffersFromSourceFile(int* length, char* nameOfFile){
     file = fopen(nameOfFile, "r");
 
     if (!file) {
-        printf("failed to open file");
+        printf("failed to open file %s", nameOfFile);
         exit(EXIT_FAILURE);
     }
 

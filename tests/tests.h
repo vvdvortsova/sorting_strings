@@ -26,8 +26,7 @@
         fprintf(stderr, "[TEST] expected = %d code = %d \n",expected, code);\
     }
 
-void test1();
-void test2();
+
 void test3();
 void test4();
 void test5();

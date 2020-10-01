@@ -10,35 +10,8 @@
 
 
 
-static struct LineOfFile* getEnglishLines(int n) {
-    struct LineOfFile* arr = calloc(n, n * sizeof(struct LineOfFile*));
-    arr[0].line = "As stars with trains of fire and dews of blood,";
-    arr[0].lenOfLine = 47;
-    arr[1].line = "Disasters in the sun; and the moist star";
-    arr[1].lenOfLine = 41;
-    arr[2].line = "Was sick almost to doomsday with eclipse:";
-    arr[2].lenOfLine = 41;
-    arr[3].line = "But soft, behold! lo, where it comes again!";
-    arr[3].lenOfLine = 43;
-    arr[4].line = "The graves stood tenantless and the sheeted dead";
-    arr[4].lenOfLine = 48;
-    return arr;
-}
 
-void test1(){
-    int n = 5;
-    struct LineOfFile* arr = getEnglishLines(n);
-    quickSortSortLib(arr, n, LEFT_TO_RIGHT);
-    assertTestINT("test1", isSorted(arr, n, LEFT_TO_RIGHT),1);
 
-}
-
-void test2(){
-    int n = 5;
-    struct LineOfFile* arr = getEnglishLines(n);
-    quickSortSortLib(arr, n, RIGHT_TO_LEFT);
-    assertTestINT("test2", isSorted(arr, n, RIGHT_TO_LEFT),1);
-}
 
 void test3(){
     int length = 0;
@@ -49,7 +22,7 @@ void test3(){
 
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
 
-    quickSortSortLib(sourceList, linesCount, LEFT_TO_RIGHT);
+    startQuickSortLib(sourceList, 0, linesCount - 1, LEFT_TO_RIGHT);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, LEFT_TO_RIGHT),1);
 
     free(bufferOrigin);
@@ -65,7 +38,7 @@ void test4(){
 
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
 
-    quickSortSortLib(sourceList, linesCount, RIGHT_TO_LEFT);
+    startQuickSortLib(sourceList, 0, linesCount - 1, RIGHT_TO_LEFT);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, RIGHT_TO_LEFT),1);
 
     free(bufferOrigin);
@@ -81,7 +54,7 @@ void test5(){
 
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
 
-    quickSortSortLib(sourceList, linesCount, RIGHT_TO_LEFT);
+    startQuickSortLib(sourceList, 0, linesCount - 1, RIGHT_TO_LEFT);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, RIGHT_TO_LEFT),1);
 
     free(bufferOrigin);
@@ -97,7 +70,7 @@ void test6(){
 
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
 
-    quickSortSortLib(sourceList, linesCount, LEFT_TO_RIGHT);
+    startQuickSortLib(sourceList, 0, linesCount - 1, LEFT_TO_RIGHT);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, LEFT_TO_RIGHT),1);
 
     free(bufferOrigin);
@@ -113,7 +86,7 @@ void test7(){
 
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
 
-    quickSortSortLib(sourceList, linesCount, LEFT_TO_RIGHT);
+    startQuickSortLib(sourceList, 0, linesCount - 1, LEFT_TO_RIGHT);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, LEFT_TO_RIGHT),1);
 
     free(bufferOrigin);
@@ -129,7 +102,7 @@ void test8(){
 
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
 
-    quickSortSortLib(sourceList, linesCount, RIGHT_TO_LEFT);
+    startQuickSortLib(sourceList, 0, linesCount - 1, RIGHT_TO_LEFT);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, RIGHT_TO_LEFT),1);
 
     free(bufferOrigin);
@@ -145,7 +118,7 @@ void test9(){
 
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
 
-    quickSortSortLib(sourceList, linesCount, RIGHT_TO_LEFT);
+    startQuickSortLib(sourceList,0, linesCount - 1, RIGHT_TO_LEFT);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, RIGHT_TO_LEFT),1);
 
     free(bufferOrigin);
@@ -161,7 +134,7 @@ void test10(){
 
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
 
-    quickSortSortLib(sourceList, linesCount, LEFT_TO_RIGHT);
+    startQuickSortLib(sourceList, 0,linesCount - 1, LEFT_TO_RIGHT);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, LEFT_TO_RIGHT),1);
 
     free(bufferOrigin);
@@ -170,8 +143,6 @@ void test10(){
 int main(void){
     setlocale(LC_ALL, "ru_RU.cp1251");
 
-    test1();
-    test2();
     test3();
     test4();
     test5();
