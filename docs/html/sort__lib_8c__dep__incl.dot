@@ -4,7 +4,5 @@ digraph "src/sort_lib.c"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node5 [label="src/sort_lib.c",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
   Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="tests/tests.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tests_8h.html",tooltip="Headers of methods for testing. "];
-  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="tests/tests.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tests_8c.html",tooltip="Run all tests from tests.h. "];
+  Node6 [label="test/tests.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tests_8c_source.html"];
 }

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Strings Sorting by alphabet. It suits for English and Russian alphabet.: tests/tests.c File Reference</title>
+<title>Hamlet Sorter: test/tests.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Strings Sorting by alphabet. It suits for English and Russian alphabet.
+   <div id="projectname">Hamlet Sorter
    </div>
   </td>
  </tr>
@@ -58,70 +58,133 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">tests.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Run all tests from <a class="el" href="tests_8h.html" title="Headers of methods for testing. ">tests.h</a>.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;locale.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="tests_8h_source.html">tests.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;locale.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="sort__lib_8c.html">../src/sort_lib.c</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="help__lib_8h_source.html">../src/help_lib.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for tests.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="tests_8c__incl.png" border="0" usemap="#tests_2tests_8c" alt=""/></div>
-<map name="tests_2tests_8c" id="tests_2tests_8c">
+<div class="center"><img src="tests_8c__incl.png" border="0" usemap="#test_2tests_8c" alt=""/></div>
+<map name="test_2tests_8c" id="test_2tests_8c">
 </map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af2b23d49195bf43dd675d7a72a55209d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8c.html#af2b23d49195bf43dd675d7a72a55209d">assertTestINT</a>(nameOfMethod,  code,  expected)</td></tr>
+<tr class="separator:af2b23d49195bf43dd675d7a72a55209d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1440a7779ac56f47a3f355ce4a8c7da0"><td class="memItemLeft" align="right" valign="top"><a id="a1440a7779ac56f47a3f355ce4a8c7da0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test1</b> ()</td></tr>
-<tr class="separator:a1440a7779ac56f47a3f355ce4a8c7da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0283886819c7c140a023582b7269e2d0"><td class="memItemLeft" align="right" valign="top"><a id="a0283886819c7c140a023582b7269e2d0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test2</b> ()</td></tr>
-<tr class="separator:a0283886819c7c140a023582b7269e2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d0455dd5c30adda100e95f0423c786e"><td class="memItemLeft" align="right" valign="top"><a id="a6d0455dd5c30adda100e95f0423c786e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test3</b> ()</td></tr>
-<tr class="separator:a6d0455dd5c30adda100e95f0423c786e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a327d8cef466a7560ead5eb3995c0cbae"><td class="memItemLeft" align="right" valign="top"><a id="a327d8cef466a7560ead5eb3995c0cbae"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test4</b> ()</td></tr>
-<tr class="separator:a327d8cef466a7560ead5eb3995c0cbae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e1be3038bbc558f32a409f076126c33"><td class="memItemLeft" align="right" valign="top"><a id="a8e1be3038bbc558f32a409f076126c33"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test5</b> ()</td></tr>
-<tr class="separator:a8e1be3038bbc558f32a409f076126c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9725331980ffa46dc478f6728c4e57ce"><td class="memItemLeft" align="right" valign="top"><a id="a9725331980ffa46dc478f6728c4e57ce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test6</b> ()</td></tr>
-<tr class="separator:a9725331980ffa46dc478f6728c4e57ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96b9ae95c46e7154e28dabd85b639483"><td class="memItemLeft" align="right" valign="top"><a id="a96b9ae95c46e7154e28dabd85b639483"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test7</b> ()</td></tr>
-<tr class="separator:a96b9ae95c46e7154e28dabd85b639483"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23668c0ebf838394ccfd783a4848ef93"><td class="memItemLeft" align="right" valign="top"><a id="a23668c0ebf838394ccfd783a4848ef93"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test8</b> ()</td></tr>
-<tr class="separator:a23668c0ebf838394ccfd783a4848ef93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a444991317dc6e50a654a8cf71adf4748"><td class="memItemLeft" align="right" valign="top"><a id="a444991317dc6e50a654a8cf71adf4748"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test9</b> ()</td></tr>
-<tr class="separator:a444991317dc6e50a654a8cf71adf4748"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa253a0e18f2b2d976b1540d8d3f67b9e"><td class="memItemLeft" align="right" valign="top"><a id="aa253a0e18f2b2d976b1540d8d3f67b9e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test10</b> ()</td></tr>
-<tr class="separator:aa253a0e18f2b2d976b1540d8d3f67b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top"><a id="a840291bc02cba5474a4cb46a9b9566fe"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (void)</td></tr>
+<tr class="memitem:ae1f820a96277be296140c81fbd62252c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8c.html#ae1f820a96277be296140c81fbd62252c">doTest</a> (char *nameOfFile, enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a> howToCompareStr)</td></tr>
+<tr class="separator:ae1f820a96277be296140c81fbd62252c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tests_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Run all tests from <a class="el" href="tests_8h.html" title="Headers of methods for testing. ">tests.h</a>. </p>
-<dl class="section author"><dt>Author</dt><dd>Dvortsova Varvara BSE182 HSE <div class="fragment"></div><!-- fragment -->, <a class="el" href="tests_8h.html" title="Headers of methods for testing. ">tests.h</a>, ../src/help_lib.h </dd></dl>
-</div></div><!-- contents -->
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="af2b23d49195bf43dd675d7a72a55209d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b23d49195bf43dd675d7a72a55209d">&#9670;&nbsp;</a></span>assertTestINT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define assertTestINT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">nameOfMethod, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">code, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">expected&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span>((code) == (expected)){\</div><div class="line">        printf(<span class="stringliteral">&quot;[TEST] [ %s ] [PASSED] (%s:%d)\n&quot;</span>,\</div><div class="line">                nameOfMethod, __FILE__, __LINE__);\</div><div class="line">    }<span class="keywordflow">else</span>{\</div><div class="line">        fprintf(stderr, <span class="stringliteral">&quot;[TEST] [ %s ] [FAILED] (%s:%d) \n&quot;</span>,\</div><div class="line">                nameOfMethod,__FILE__, __LINE__);\</div><div class="line">        fprintf(stderr, <span class="stringliteral">&quot;[TEST] expected = %d code = %d \n&quot;</span>,expected, code);\</div><div class="line">    }</div></div><!-- fragment --><p>Macros define custom assert function for unit testing </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nameOfMethod</td><td>Describe the name Of method where assertTestINT was called </td></tr>
+    <tr><td class="paramname">code</td><td>Actual value </td></tr>
+    <tr><td class="paramname">expected</td><td>Expected value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ae1f820a96277be296140c81fbd62252c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f820a96277be296140c81fbd62252c">&#9670;&nbsp;</a></span>doTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void doTest </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nameOfFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a>&#160;</td>
+          <td class="paramname"><em>howToCompareStr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

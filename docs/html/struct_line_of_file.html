@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Strings Sorting by alphabet. It suits for English and Russian alphabet.: LineOfFile Struct Reference</title>
+<title>Hamlet Sorter: LineOfFile Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Strings Sorting by alphabet. It suits for English and Russian alphabet.
+   <div id="projectname">Hamlet Sorter
    </div>
   </td>
  </tr>
@@ -65,48 +65,48 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Struct is keeping char* array and length of this char* array.  
+<p>Struct is keeping pointers to char*.  
  <a href="struct_line_of_file.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="sort__lib_8h_source.html">sort_lib.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a8adb30f4f6669f927fd9232f686c637b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_line_of_file.html#a8adb30f4f6669f927fd9232f686c637b">line</a></td></tr>
-<tr class="separator:a8adb30f4f6669f927fd9232f686c637b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaacc6e210262c1d32299a9584a913ec"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_line_of_file.html#aeaacc6e210262c1d32299a9584a913ec">lenOfLine</a></td></tr>
-<tr class="separator:aeaacc6e210262c1d32299a9584a913ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40328f79e021050ac262dc0a6019667"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_line_of_file.html#ab40328f79e021050ac262dc0a6019667">start</a></td></tr>
+<tr class="separator:ab40328f79e021050ac262dc0a6019667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd806ad19b8f5513a4cf18cbf77532c"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_line_of_file.html#a8fd806ad19b8f5513a4cf18cbf77532c">end</a></td></tr>
+<tr class="separator:a8fd806ad19b8f5513a4cf18cbf77532c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Struct is keeping char* array and length of this char* array. </p>
+<div class="textblock"><p>Struct is keeping pointers to char*. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="aeaacc6e210262c1d32299a9584a913ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaacc6e210262c1d32299a9584a913ec">&#9670;&nbsp;</a></span>lenOfLine</h2>
+<a id="a8fd806ad19b8f5513a4cf18cbf77532c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fd806ad19b8f5513a4cf18cbf77532c">&#9670;&nbsp;</a></span>end</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int lenOfLine</td>
+          <td class="memname">char* end</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>length of line </p>
+<p>keeps point on the end of the line </p>
 
 </div>
 </div>
-<a id="a8adb30f4f6669f927fd9232f686c637b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8adb30f4f6669f927fd9232f686c637b">&#9670;&nbsp;</a></span>line</h2>
+<a id="ab40328f79e021050ac262dc0a6019667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab40328f79e021050ac262dc0a6019667">&#9670;&nbsp;</a></span>start</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* line</td>
+          <td class="memname">char* start</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>keeps line </p>
+<p>keeps point on the beginning of the line </p>
 
 </div>
 </div>

@@ -1,6 +1,6 @@
 /**
 * @file         help_lib.c
-* @brief        Realization of methods for helping functions in main and tests
+* @brief        Realization of methods for helping functions in main and test
 * @author       Dvortsova Varvara BSE182 HSE
 * @include      help_lib.h, stdio.h, stdlib.h, locale.h, assert.h, help_lib.h
 */
@@ -100,7 +100,9 @@ char* getBuffersFromSourceFile(int* length, char* nameOfFile){
 
     if (bufferOrigin) {
         //read all file in bufferOrigin
-        fread(bufferOrigin, 1, *length, file);
+        int res = fread(bufferOrigin, 1, *length, file);
+        if(res != *length)
+            exit(EXIT_FAILURE);
     }
     fclose(file);
     if(bufferOrigin != NULL)

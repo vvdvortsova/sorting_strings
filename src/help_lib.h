@@ -1,6 +1,6 @@
 /**
 * @file         help_lib.h
-* @brief        Headers of methods for helping functions in main and tests
+* @brief        Headers of methods for helping functions in main and test
 * @author       Dvortsova Varvara BSE182 HSE
 * @include      sort_lib.h
 */
@@ -39,7 +39,7 @@ int getNumberOfLinesInBuffer(char* buffer, int length);
 
 /**
 * @brief       Method puts strings from sourceOrigin to file
-* @details     Methods doesnt put empty strings
+* @details     Methods doesn't put empty strings
 * @param[in]   sourceOrigin
 * @param[in]   linesCount
 * @param[in]   nameOfFile

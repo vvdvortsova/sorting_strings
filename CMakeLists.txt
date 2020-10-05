@@ -15,7 +15,11 @@ add_executable(
 
 add_executable(
         tests
-        tests/tests.h
-        tests/tests.c
+        test/tests.c
         src/help_lib.h
         src/help_lib.c)
+
+set(RESOURCE_FILES
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/source.txt
+        ${CMAKE_CURRENT_SOURCE_DIR}/results/
+        ${CMAKE_CURRENT_SOURCE_DIR}/test/)

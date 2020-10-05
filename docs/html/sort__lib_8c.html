@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Strings Sorting by alphabet. It suits for English and Russian alphabet.: src/sort_lib.c File Reference</title>
+<title>Hamlet Sorter: src/sort_lib.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Strings Sorting by alphabet. It suits for English and Russian alphabet.
+   <div id="projectname">Hamlet Sorter
    </div>
   </td>
  </tr>
@@ -71,22 +71,15 @@ $(function() {
 
 <p>Realization of methods for qsort and comparator.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="sort__lib_8h_source.html">sort_lib.h</a>&quot;</code><br />
-<code>#include &lt;ctype.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;ctype.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;spandsp.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="sort__lib_8h_source.html">sort_lib.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sort_lib.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="sort__lib_8c__incl.png" border="0" usemap="#src_2sort__lib_8c" alt=""/></div>
 <map name="src_2sort__lib_8c" id="src_2sort__lib_8c">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="sort__lib_8c__dep__incl.png" border="0" usemap="#src_2sort__lib_8cdep" alt=""/></div>
-<map name="src_2sort__lib_8cdep" id="src_2sort__lib_8cdep">
 </map>
 </div>
 </div><table class="memberdecls">
@@ -95,22 +88,19 @@ Functions</h2></td></tr>
 <tr class="memitem:af93695d14a14923934ea2e6b7dbca5a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort__lib_8c.html#af93695d14a14923934ea2e6b7dbca5a4">isSorted</a> (struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *numbers, int arraySize, enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a> howToCompareStr)</td></tr>
 <tr class="memdesc:af93695d14a14923934ea2e6b7dbca5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if array with char* is in order.  <a href="#af93695d14a14923934ea2e6b7dbca5a4">More...</a><br /></td></tr>
 <tr class="separator:af93695d14a14923934ea2e6b7dbca5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a031630c1791ee70957e8db7ed3f0eacd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort__lib_8c.html#a031630c1791ee70957e8db7ed3f0eacd">quickSortSortLib</a> (struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *numbers, int arraySize, enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a> howToCompareStr)</td></tr>
-<tr class="memdesc:a031630c1791ee70957e8db7ed3f0eacd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methods runs startQuickSortLib.  <a href="#a031630c1791ee70957e8db7ed3f0eacd">More...</a><br /></td></tr>
-<tr class="separator:a031630c1791ee70957e8db7ed3f0eacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f1d06669d0dfa7d5e992a03973cdaff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort__lib_8c.html#a0f1d06669d0dfa7d5e992a03973cdaff">partitionSortLib</a> (struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *arr, int start, int end, enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a> howToCompareStr)</td></tr>
 <tr class="memdesc:a0f1d06669d0dfa7d5e992a03973cdaff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts array.  <a href="#a0f1d06669d0dfa7d5e992a03973cdaff">More...</a><br /></td></tr>
 <tr class="separator:a0f1d06669d0dfa7d5e992a03973cdaff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eb4513bf0c4497313fd5d7fad0889fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort__lib_8c.html#a2eb4513bf0c4497313fd5d7fad0889fc">startQuickSortLib</a> (struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *arr, int start, int end, enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a> howToCompareStr)</td></tr>
 <tr class="memdesc:a2eb4513bf0c4497313fd5d7fad0889fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run qsort.  <a href="#a2eb4513bf0c4497313fd5d7fad0889fc">More...</a><br /></td></tr>
 <tr class="separator:a2eb4513bf0c4497313fd5d7fad0889fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafc2767822898112d04935d535f747e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort__lib_8c.html#aafc2767822898112d04935d535f747e7">strcmpSortLib</a> (const char *s1, int len1, const char *s2, int len2, enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a> howToCompareStr)</td></tr>
-<tr class="memdesc:aafc2767822898112d04935d535f747e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methods overrides strcmp for struct LineOfFile*.  <a href="#aafc2767822898112d04935d535f747e7">More...</a><br /></td></tr>
-<tr class="separator:aafc2767822898112d04935d535f747e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f1691febd58607ed7f15399d14c591"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sort__lib_8c.html#ae4f1691febd58607ed7f15399d14c591">strcmpSortLib</a> (struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *item1, struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *item2, enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a> howToCompareStr)</td></tr>
+<tr class="memdesc:ae4f1691febd58607ed7f15399d14c591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methods overrides strcmp for struct LineOfFile*.  <a href="#ae4f1691febd58607ed7f15399d14c591">More...</a><br /></td></tr>
+<tr class="separator:ae4f1691febd58607ed7f15399d14c591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Realization of methods for qsort and comparator. </p>
-<dl class="section author"><dt>Author</dt><dd>Dvortsova Varvara BSE182 HSE <div class="fragment"></div><!-- fragment -->, <a class="el" href="sort__lib_8h.html" title="Headers of methods for qsort and comparator. ">sort_lib.h</a>,spandsp.h,ctype.h </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Dvortsova Varvara BSE182 HSE <div class="fragment"></div><!-- fragment -->, <a class="el" href="sort__lib_8h.html" title="Headers of methods for qsort and comparator. ">sort_lib.h</a>, spandsp.h, ctype.h, <a class="el" href="sort__lib_8h.html" title="Headers of methods for qsort and comparator. ">sort_lib.h</a> </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="af93695d14a14923934ea2e6b7dbca5a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af93695d14a14923934ea2e6b7dbca5a4">&#9670;&nbsp;</a></span>isSorted()</h2>
@@ -209,50 +199,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a031630c1791ee70957e8db7ed3f0eacd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a031630c1791ee70957e8db7ed3f0eacd">&#9670;&nbsp;</a></span>quickSortSortLib()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void quickSortSortLib </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *&#160;</td>
-          <td class="paramname"><em>numbers</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>arraySize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">enum <a class="el" href="sort__lib_8h.html#ae3a79656989022700be12671b89a8f66">HOW_TO_COMPARE_STRING</a>&#160;</td>
-          <td class="paramname"><em>howToCompareStr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Methods runs startQuickSortLib. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">arr</td><td>array of struct LineOfFile* </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">arraySize</td><td>size of array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">howToCompareStr</td><td>type of comparator </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a2eb4513bf0c4497313fd5d7fad0889fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2eb4513bf0c4497313fd5d7fad0889fc">&#9670;&nbsp;</a></span>startQuickSortLib()</h2>
 
@@ -304,8 +250,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aafc2767822898112d04935d535f747e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafc2767822898112d04935d535f747e7">&#9670;&nbsp;</a></span>strcmpSortLib()</h2>
+<a id="ae4f1691febd58607ed7f15399d14c591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f1691febd58607ed7f15399d14c591">&#9670;&nbsp;</a></span>strcmpSortLib()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,26 +259,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int strcmpSortLib </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s1</em>, </td>
+          <td class="paramtype">struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *&#160;</td>
+          <td class="paramname"><em>item1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>len1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>s2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>len2</em>, </td>
+          <td class="paramtype">struct <a class="el" href="struct_line_of_file.html">LineOfFile</a> *&#160;</td>
+          <td class="paramname"><em>item2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

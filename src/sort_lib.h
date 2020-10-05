@@ -19,7 +19,7 @@
 }
 
 /**
-* @brief  Struct is keeping char* array and length of this char* array
+* @brief  Struct is keeping pointers to char*
 */
 struct LineOfFile{
     char* start;/**< keeps point on the beginning of the line*/
@@ -53,13 +53,6 @@ int partitionSortLib(struct LineOfFile* arr, int start, int end,enum HOW_TO_COMP
  */
 void startQuickSortLib(struct LineOfFile* arr, int start, int end, enum HOW_TO_COMPARE_STRING howToCompareStr);
 
-///**
-//* @brief       Methods runs startQuickSortLib
-//* @param[in]   arr               array of struct LineOfFile*
-//* @param[in]   arraySize         size of array
-//* @param[in]   howToCompareStr   type of comparator
-// */
-//void quickSortSortLib(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr);
 
 /**
 * @brief       Methods overrides strcmp for struct LineOfFile*

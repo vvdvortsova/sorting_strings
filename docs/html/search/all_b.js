@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tests_2ec',['tests.c',['../tests_8c.html',1,'']]],
-  ['tests_2eh',['tests.h',['../tests_8h.html',1,'']]]
+  ['partitionsortlib',['partitionSortLib',['../sort__lib_8c.html#a0f1d06669d0dfa7d5e992a03973cdaff',1,'partitionSortLib(struct LineOfFile *arr, int start, int end, enum HOW_TO_COMPARE_STRING howToCompareStr):&#160;sort_lib.c'],['../sort__lib_8h.html#a0f1d06669d0dfa7d5e992a03973cdaff',1,'partitionSortLib(struct LineOfFile *arr, int start, int end, enum HOW_TO_COMPARE_STRING howToCompareStr):&#160;sort_lib.c']]],
+  ['platform_5fid',['PLATFORM_ID',['../cmake-build-debug_2_c_make_files_23_815_83_2_compiler_id_c_2_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../_c_make_files_23_810_82_2_compiler_id_c_2_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../_c_make_files_23_815_83_2_compiler_id_c_2_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../_c_make_files_23_818_83_2_compiler_id_c_2_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c']]],
+  ['putresulttofiles',['putResultToFiles',['../help__lib_8c.html#a68861b2d41a2b93462cb88d53012540f',1,'putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount, char *nameOfFile, enum HOW_TO_COMPARE_STRING howToCompare):&#160;help_lib.c'],['../help__lib_8h.html#a68861b2d41a2b93462cb88d53012540f',1,'putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount, char *nameOfFile, enum HOW_TO_COMPARE_STRING howToCompare):&#160;help_lib.c']]]
 ];

@@ -1,31 +1,24 @@
-# Strings Sorting by alphabet. It suits for English and Russian alphabet.
+# "Hamlet" sorter
 This program is the second task of ISP RAS course C/C++ by I. R. Dedinsky
 ## Info
 This program sorts strings by alphabet in two directions: from left to right and from right to left.
-Project uses windows-1251 file encoding  for reading Russian language.
-To get the correct with Russian result you need to have ```ru_RU.cp1251``` local in your OS.
-## How to set up ru_RU.cp1251 local in KUbuntu 18.04
-Try to do this command in terminal
-```bash 
-sudo /usr/share/locales/install-language-pack ru_RU.CP1251
-```
-Check 
-```bash
-locale -a | grep ru_RU
-```
-and use .txt with windows-1251 file encoding 
+Project supports English in UTF-8 encoding.
 
 ## Structure
 - Main project 
     - src/
+    - source.txt - file with poem
 - Test project
-    - tests/
-- Source dir
-    - sources/source.txt
+    - test/
 - Results gir
     - results/
+    
+## Installing
+```bash
+git clone https://github.com/vvdvortsova/sorting_strings.git
+```
 
-# Run
+## Run
 To run main program
 
 ```bash
