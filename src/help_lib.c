@@ -34,7 +34,6 @@ void putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount, char* nam
     for (int i = 0; i < linesCount; ++i)
         if(*sourceOrigin[i].start != '\0')
             fprintf(fileToWriteResult,"%s\n", sourceOrigin[i].start);
-
     fclose(fileToWriteResult);
 }
 
@@ -49,7 +48,6 @@ int getNumberOfLinesInBuffer(char *buffer, int length){
 
     if(linesCount >= length)
         linesCount = 0;
-
     return linesCount;
 }
 
@@ -107,7 +105,6 @@ char* getBuffersFromSourceFile(int* length, char* nameOfFile){
     fclose(file);
     if(bufferOrigin != NULL)
         bufferOrigin[*length] = '\n';
-
     return bufferOrigin;
 }
 

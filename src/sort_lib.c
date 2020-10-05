@@ -10,8 +10,6 @@
 #include <spandsp.h>
 #include "sort_lib.h"
 
-
-
 int isSorted(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr){
     assert(numbers != NULL);
     assert(arraySize > 0);
@@ -29,7 +27,6 @@ int partitionSortLib(struct LineOfFile* arr, int start, int end,enum HOW_TO_COMP
     struct LineOfFile pivot = arr[(start + end) / 2];
     int i = start;
     int j = end;
-
     for (;i <= j;)
     {
         //if i less than pivot go ahead
@@ -75,9 +72,7 @@ int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_
     assert(item2 != NULL);
     assert(item1 != item2);
 
-
     int i = 0, j = 0;
-
     switch(howToCompareStr){
         case LEFT_TO_RIGHT:
             while(item1->start[i] != '\0' && !isalpha(item1->start[i]))
@@ -98,7 +93,6 @@ int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_
                     ++j;
             }
             return (unsigned char) item1->start[i] - (unsigned char) item2->start[j];
-
             case RIGHT_TO_LEFT:
                 i--;
                 j--;
@@ -109,9 +103,7 @@ int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_
                     while(item2->end[j] != '\0' && !isalpha(item2->end[j]));
 
             }while(((item1->end[i] != '\0') && (item2->end[j] != '\0')) && (item1->end[i] == item2->end[j]));
-
             return (unsigned char) item1->end[i] - (unsigned char) item2->end[j];
-
         default:
             return -1;
     }

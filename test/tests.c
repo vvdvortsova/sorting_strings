@@ -43,13 +43,11 @@ void doTest(char* nameOfFile, enum HOW_TO_COMPARE_STRING howToCompareStr){
 }
 
 int main(void){
-
     doTest("test/test_02.txt", LEFT_TO_RIGHT);
     doTest("test/test_02.txt", RIGHT_TO_LEFT);
     doTest("test/test_01.txt", LEFT_TO_RIGHT);
     doTest("test/test_01.txt", RIGHT_TO_LEFT);
     doTest("test/test_03.txt", LEFT_TO_RIGHT);
     doTest("test/test_03.txt", RIGHT_TO_LEFT);
-
     return 0;
 }
