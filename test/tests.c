@@ -18,11 +18,11 @@
  * */
 #define assertTestINT( nameOfMethod,code, expected )\
     if((code) == (expected)){\
-        printf("[TEST] [ %s ] [PASSED] (%s:%d)\n",\
-                nameOfMethod, __FILE__, __LINE__);\
+        printf("[TEST] [ %s ] [PASSED]\n",\
+                nameOfMethod);\
     }else{\
-        fprintf(stderr, "[TEST] [ %s ] [FAILED] (%s:%d) \n",\
-                nameOfMethod,__FILE__, __LINE__);\
+        fprintf(stderr, "[TEST] [ %s ] [FAILED]\n",\
+                nameOfMethod);\
         fprintf(stderr, "[TEST] expected = %d code = %d \n",expected, code);\
     }
 
@@ -32,9 +32,7 @@ void doTest(char* nameOfFile, enum HOW_TO_COMPARE_STRING howToCompareStr){
     struct LineOfFile* sourceList = NULL;
     char* bufferOrigin =  getBuffersFromSourceFile(&length, nameOfFile);
     int linesCount = getNumberOfLinesInBuffer(bufferOrigin, length);
-
     sourceList = arrangePointersFromBuffer(bufferOrigin, linesCount, length);
-
     startQuickSortLib(sourceList, 0, linesCount - 1, howToCompareStr);
     assertTestINT(nameOfFile, isSorted(sourceList, linesCount, howToCompareStr),1);
 

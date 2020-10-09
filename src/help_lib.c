@@ -15,17 +15,19 @@ void putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount, char* nam
     assert(sourceOrigin);
     assert(nameOfFile);
     assert(linesCount != 0);
-
     int isSortedArray = -1;
     if(howToCompare != NONE_SORT){
         isSortedArray = isSorted(sourceOrigin, linesCount, howToCompare);
-        if(isSortedArray > 0)printf(" is SORTED\n");
+        if(howToCompare == RIGHT_TO_LEFT)
+            printf("RIGHT_TO_LEFT: ");
+        else
+            printf("LEFT_TO_RIGHT: ");
+        if(isSortedArray > 0) printf(" is SORTED\n");
         else printf(" is UNSORTED\n");
     }
 
     FILE* fileToWriteResult = NULL;
     fileToWriteResult = fopen(nameOfFile, "w");
-
     if (!fileToWriteResult){
         printf("failed to open file");
         exit(EXIT_FAILURE);
@@ -53,7 +55,6 @@ int getNumberOfLinesInBuffer(char *buffer, int length){
 
 struct LineOfFile* arrangePointersFromBuffer(char* bufferOrigin, int numberOfLines, int lengthOfBuffer){
     assert(bufferOrigin);
-
     struct LineOfFile* sourceList =  calloc(numberOfLines,numberOfLines * sizeof(struct LineOfFile*));
     int currentLine = 0;
     int startOfLine = 0;
@@ -81,14 +82,11 @@ struct LineOfFile* arrangePointersFromBuffer(char* bufferOrigin, int numberOfLin
 char* getBuffersFromSourceFile(int* length, char* nameOfFile){
     assert(nameOfFile);
     FILE* file = NULL;
-
     file = fopen(nameOfFile, "r");
-
     if (!file) {
         printf("failed to open file %s", nameOfFile);
         exit(EXIT_FAILURE);
     }
-
     // define size of file
     fseek(file, 0, SEEK_END);
     *length = ftell(file);

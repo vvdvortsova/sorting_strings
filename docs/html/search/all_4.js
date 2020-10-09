@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['issorted',['isSorted',['../sort__lib_8c.html#af93695d14a14923934ea2e6b7dbca5a4',1,'isSorted(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr):&#160;sort_lib.c'],['../sort__lib_8h.html#af93695d14a14923934ea2e6b7dbca5a4',1,'isSorted(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr):&#160;sort_lib.c']]]
+  ['help_5flib_2ec',['help_lib.c',['../help__lib_8c.html',1,'']]],
+  ['help_5flib_2eh',['help_lib.h',['../help__lib_8h.html',1,'']]],
+  ['how_5fto_5fcompare_5fstring',['HOW_TO_COMPARE_STRING',['../sort__lib_8h.html#ae3a79656989022700be12671b89a8f66',1,'sort_lib.h']]]
 ];

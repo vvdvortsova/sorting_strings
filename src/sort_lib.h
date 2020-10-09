@@ -56,14 +56,28 @@ void startQuickSortLib(struct LineOfFile* arr, int start, int end, enum HOW_TO_C
 
 /**
 * @brief       Methods overrides strcmp for struct LineOfFile*
-* @param[in]   s1              first line
-* @param[in]   len1            length of first line
-* @param[in]   s2              second line
-* @param[in]   len2            length of second line
+* @param[in]   item1            first line
+* @param[in]   item2            second line
 * @param[in]   howToCompareStr type of comparator
 * @return                      positive number if s1 > s2, negative number if s1 < s2 else 0
  */
 int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_TO_COMPARE_STRING howToCompareStr);
+
+/**
+* @brief       Methods compares two struct LineOfFile* by alphabet in left to right direction
+* @param[in]   item1 first line
+* @param[in]   item2 second line
+* @return            positive number if s1 > s2, negative number if s1 < s2 else 0
+ */
+int compareLeftToRight(struct LineOfFile *item1, struct LineOfFile *item2);
+
+/**
+* @brief       Methods compares two struct LineOfFile* by alphabet in right to left direction
+* @param[in]   item1 first line
+* @param[in]   item2 second line
+* @return            positive number if s1 > s2, negative number if s1 < s2 else 0
+ */
+int compareRightToLeft(struct LineOfFile *item1, struct LineOfFile *item2);
 
 /**
 * @brief       Checks if array with char* is in order
@@ -73,5 +87,6 @@ int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_
 * @return                      1 if numbers is in order, else -1
  */
 int isSorted(struct LineOfFile* numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr);
+
 
 #endif //SORT_STRINGS_SORT_LIB_H

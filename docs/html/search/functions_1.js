@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getbuffersfromsourcefile',['getBuffersFromSourceFile',['../help__lib_8c.html#a54f1a6597ea1b2cd8490da42c4e0ebfe',1,'getBuffersFromSourceFile(int *length, char *nameOfFile):&#160;help_lib.c'],['../help__lib_8h.html#a54f1a6597ea1b2cd8490da42c4e0ebfe',1,'getBuffersFromSourceFile(int *length, char *nameOfFile):&#160;help_lib.c']]],
-  ['getnumberoflinesinbuffer',['getNumberOfLinesInBuffer',['../help__lib_8c.html#aea8206c8805ba0b3439d81db1ce8ca10',1,'getNumberOfLinesInBuffer(char *buffer, int length):&#160;help_lib.c'],['../help__lib_8h.html#aea8206c8805ba0b3439d81db1ce8ca10',1,'getNumberOfLinesInBuffer(char *buffer, int length):&#160;help_lib.c']]]
+  ['comparelefttoright',['compareLeftToRight',['../sort__lib_8c.html#af1ae4837a2e595a0178cbf4119f4a875',1,'compareLeftToRight(struct LineOfFile *item1, struct LineOfFile *item2):&#160;sort_lib.c'],['../sort__lib_8h.html#af1ae4837a2e595a0178cbf4119f4a875',1,'compareLeftToRight(struct LineOfFile *item1, struct LineOfFile *item2):&#160;sort_lib.c']]],
+  ['comparerighttoleft',['compareRightToLeft',['../sort__lib_8c.html#a7ac2898d6d7cd8151d7b2fa1ec0bafba',1,'compareRightToLeft(struct LineOfFile *item1, struct LineOfFile *item2):&#160;sort_lib.c'],['../sort__lib_8h.html#a7ac2898d6d7cd8151d7b2fa1ec0bafba',1,'compareRightToLeft(struct LineOfFile *item1, struct LineOfFile *item2):&#160;sort_lib.c']]]
 ];

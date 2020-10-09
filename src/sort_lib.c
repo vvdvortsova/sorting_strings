@@ -2,12 +2,12 @@
 * @file         sort_lib.c
 * @brief        Realization of methods for qsort and comparator
 * @author       Dvortsova Varvara BSE182 HSE
-* @include      assert.h, sort_lib.h, spandsp.h, ctype.h, sort_lib.h
+* @include      assert.h, sort_lib.h, stdio.h, ctype.h, sort_lib.h
 */
 
 #include <ctype.h>
 #include <assert.h>
-#include <spandsp.h>
+#include <stdio.h>
 #include "sort_lib.h"
 
 int isSorted(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr){
@@ -66,46 +66,59 @@ void startQuickSortLib(struct LineOfFile* arr, int start, int end, enum HOW_TO_C
 
 
 
-int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_TO_COMPARE_STRING howToCompareStr)
-{
+int strcmpSortLib( struct LineOfFile* item1, struct LineOfFile* item2, enum HOW_TO_COMPARE_STRING howToCompareStr){
     assert(item1 != NULL);
     assert(item2 != NULL);
     assert(item1 != item2);
-
-    int i = 0, j = 0;
     switch(howToCompareStr){
         case LEFT_TO_RIGHT:
-            while(item1->start[i] != '\0' && !isalpha(item1->start[i]))
-                ++i;
-
-            while(item2->start[j] != '\0'&& !isalpha(item2->start[j]))
-                ++j;
-
-            for( ; item1->start[i] == item2->start[j]; ++i, ++j )
-            {
-                if (item1->start[i] == '\0' || item2->start[j] == '\0' )
-                    break;
-
-                while(item1->start[i + 1] != '\0' && !isalpha(item1->start[i + 1]))
-                    ++i;
-
-                while(item2->start[j + 1] != '\0' && !isalpha(item2->start[j + 1]))
-                    ++j;
-            }
-            return (unsigned char) item1->start[i] - (unsigned char) item2->start[j];
+            return compareLeftToRight(item1, item2);
             case RIGHT_TO_LEFT:
-                i--;
-                j--;
-            do{
-                    do i--;
-                    while(item1->end[i] != '\0' && !isalpha(item1->end[i]));
-                    do j--;
-                    while(item2->end[j] != '\0' && !isalpha(item2->end[j]));
-
-            }while(((item1->end[i] != '\0') && (item2->end[j] != '\0')) && (item1->end[i] == item2->end[j]));
-            return (unsigned char) item1->end[i] - (unsigned char) item2->end[j];
+            return compareRightToLeft(item1, item2);
         default:
             return -1;
     }
+}
+
+int compareRightToLeft(struct LineOfFile* item1, struct LineOfFile* item2){
+    assert(item1 != NULL);
+    assert(item2 != NULL);
+    assert(item1 != item2);
+    while(1){
+        while((item1->end > item1->start) && isalpha(*item1->end ) == 0)
+            item1->end--;
+        while((item2->end > item2->start) && isalpha(*item2->end ) == 0)
+            item2->end--;
+        if(*item2->end == '\0'&&*item1->end == '\0')
+            return  0;
+        else if(*item1->end == '\0')
+            return -1;
+        else if(*item2->end == '\0')
+            return 1;
+        else
+            return tolower((*item1->end) ) - tolower((*item2->end));
+    }
+}
+int compareLeftToRight(struct LineOfFile *item1, struct LineOfFile *item2){
+    assert(item1 != NULL);
+    assert(item2 != NULL);
+    assert(item1 != item2);
+    int i = 0, j =0;
+    while(item1->start[i] != '\0' && isalpha(item1->start[i]) == 0)
+        ++i;
+    while(item2->start[j] != '\0'&& isalpha(item2->start[j]) == 0)
+        ++j;
+    for( ; tolower(item1->start[i]) == tolower(item2->start[j]); ++i, ++j )
+    {
+        if (item1->start[i] == '\0' || item2->start[j] == '\0' )
+            break;
+
+        while(item1->start[i + 1] != '\0' && isalpha(item1->start[i + 1]) == 0)
+            ++i;
+
+        while(item2->start[j + 1] != '\0' && isalpha(item2->start[j + 1]) == 0)
+            ++j;
+    }
+    return tolower(item1->start[i]) - tolower(item2->start[j]);
 }
 

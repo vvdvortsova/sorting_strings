@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['partitionsortlib',['partitionSortLib',['../sort__lib_8c.html#a0f1d06669d0dfa7d5e992a03973cdaff',1,'partitionSortLib(struct LineOfFile *arr, int start, int end, enum HOW_TO_COMPARE_STRING howToCompareStr):&#160;sort_lib.c'],['../sort__lib_8h.html#a0f1d06669d0dfa7d5e992a03973cdaff',1,'partitionSortLib(struct LineOfFile *arr, int start, int end, enum HOW_TO_COMPARE_STRING howToCompareStr):&#160;sort_lib.c']]],
-  ['putresulttofiles',['putResultToFiles',['../help__lib_8c.html#a68861b2d41a2b93462cb88d53012540f',1,'putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount, char *nameOfFile, enum HOW_TO_COMPARE_STRING howToCompare):&#160;help_lib.c'],['../help__lib_8h.html#a68861b2d41a2b93462cb88d53012540f',1,'putResultToFiles(struct LineOfFile *sourceOrigin, int linesCount, char *nameOfFile, enum HOW_TO_COMPARE_STRING howToCompare):&#160;help_lib.c']]]
+  ['issorted',['isSorted',['../sort__lib_8c.html#af93695d14a14923934ea2e6b7dbca5a4',1,'isSorted(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr):&#160;sort_lib.c'],['../sort__lib_8h.html#af93695d14a14923934ea2e6b7dbca5a4',1,'isSorted(struct LineOfFile *numbers, int arraySize, enum HOW_TO_COMPARE_STRING howToCompareStr):&#160;sort_lib.c']]]
 ];
